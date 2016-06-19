@@ -135,7 +135,7 @@
    
    Average_frame <- `rownames<-`(Average_frame,row_names)
    
-   str(Average_frame)
+   return(Average_frame)
    
  }
  
