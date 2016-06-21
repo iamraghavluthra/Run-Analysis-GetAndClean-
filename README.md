@@ -1,3 +1,5 @@
+##README
+
 This project contains a single R script which gathers test data from my current working directory. The dataset was downloaded from [this site](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones) .
 
 The experiments have been carried out with a group of 30 volunteers. Each person performed six activities _**(WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)**_ wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, they captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
@@ -39,8 +41,8 @@ The following files are available for the train and test data. Their description
 
 - 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
 
-Notes: 
-======
+### Note
+
 - Features are normalized and bounded within [-1,1].
 - Each feature vector is a row on the text file.
 
