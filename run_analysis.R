@@ -1,6 +1,8 @@
 
  run_analysis <- function()
  {
+   library("dplyr")
+   
    ## Load all text files into respective data frames 
    
    Test_set <- read.table("UCI HAR Dataset/test/X_test.txt")
@@ -99,15 +101,19 @@
      
      act_names[i] <- paste("Activity",i)
      
+     Average_frame[i,1] <- act_names[i]
+     
       for( j in 1:vars)
       {
-        Average_frame[n_row,j] <- mean_values[[j]]
+        Average_frame[n_row,j+1] <- mean_values[[j]]
       }
      
      n_row <- n_row + 1
    }
    
    sub_names <- as.character()
+   
+   c <- 7
    
    for(i in 1: length(split_subject))
    {
@@ -119,21 +125,25 @@
      
      sub_names[i] <- paste("Subject",i)
        
+     Average_frame[c,1] <- sub_names[i]
+     
      for( j in 1:vars)
      {
-       Average_frame[n_row,j] <- mean_values[[j]]
+       Average_frame[n_row,j+1] <- mean_values[[j]]
      }
+     
+     c <- c+1
      
      n_row <- n_row + 1
    }
    
-   row_number() <- as.character()
-   
    row_names <- union(act_names,sub_names)
    
-   Average_frame <- `colnames<-`(Average_frame,matched_col)
+   Average_frame <- `colnames<-`(Average_frame,c("Activity/Subject",matched_col))
    
    Average_frame <- `rownames<-`(Average_frame,row_names)
+   
+   ## Returning the tidy data set
    
    return(Average_frame)
    
